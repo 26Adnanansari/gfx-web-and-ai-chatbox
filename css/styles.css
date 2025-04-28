@@ -1,0 +1,37 @@
+/* Font Classes */
+.font-abril {
+    font-family: 'Abril Fatface', serif;
+}
+.font-raleway {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700; /* Bold */
+}
+
+/* Hero Section Video */
+.hero-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video-wrapper video {
+    object-fit: cover;
+}
+
+/* Logo Slider Styles */
+.logo-item:hover .logo-gray {
+    display: none;
+}
+.logo-item:hover .logo-color {
+    display: block;
+}
+
+/* Dialogflow Messenger Styles */
+df-messenger {
+    --df-messenger-bot-message: #878fac;
+    --df-messenger-button-titlebar-color: #ff0000;
+    --df-messenger-chat-background-color: #fafafa;
+    --df-messenger-font-color: white;
+    --df-messenger-send-icon: #878fac;
+    --df-messenger-user-message: #479b3d;
+}

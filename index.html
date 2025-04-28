@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GFS Builders & Developers - Affordable, luxurious housing solutions in Pakistan.">
+    <meta name="keywords" content="construction, real estate, housing, Pakistan, GFS Builders">
+    <meta name="author" content="GFS Builders & Developers">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="GFS Builders & Developers">
+    <meta property="og:description" content="Leading construction company in Pakistan.">
+    <meta property="og:image" content="assets/images/GFSlogo.png">
     <title>GFS Builders & Developers</title>
-    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Smooth Scrolling -->
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-
-<body class="bg-white">
+<body class="bg-white font-raleway">
     <!-- Red Line -->
     <div class="w-full h-1 bg-red-600"></div>
 
     <!-- Header -->
-    <header class="flex items-center justify-between px-6 py-4">
+    <header class="flex items-center justify-between px-6 py-4 bg-white sticky top-0 z-50">
         <!-- Logo -->
         <div class="flex items-center">
-            <div class="inline-block align-middle mr-2">
-                <img src="GFSlogo.png" alt="GFS Logo" class="h-8 w-auto">
-            </div>
-            <div class="text-sm font-semibold">BUILDERS & DEVELOPERS</div>
+            <img src="assets/images/GFSlogo.png" alt="GFS Builders Logo" class="h-8 w-auto">
+            <span class="ml-2 text-sm font-semibold text-gray-800">BUILDERS & DEVELOPERS</span>
         </div>
-
-        <!-- Navigation -->
-        <nav class="flex space-x-6">
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex space-x-6">
             <a href="#" class="text-gray-700 hover:text-red-600">Home</a>
             <a href="#" class="text-gray-700 hover:text-red-600">Services</a>
             <a href="#" class="text-gray-700 hover:text-red-600">Projects</a>
@@ -35,365 +51,437 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </a>
-            </div>
-            <div class="relative group">
-                <a href="#" class="text-gray-700 hover:text-red-600 flex items-center">
-                    About Us
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </a>
+                <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-md mt-2">
+                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-red-100">Gallery</a>
+                    <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-red-100">Videos</a>
+                </div>
             </div>
             <a href="#" class="text-gray-700 hover:text-red-600">Blog</a>
             <a href="#" class="text-gray-700 hover:text-red-600">Contact Us</a>
         </nav>
-
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden text-gray-700" id="mobile-menu-btn" aria-label="Toggle Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
         <!-- Get a Quote Button -->
-        <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+        <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 hidden md:block">
             Get a Quote
         </button>
     </header>
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+        <nav class="flex flex-col space-y-4 p-4">
+            <a href="#" class="text-gray-700 hover:text-red-600">Home</a>
+            <a href="#" class="text-gray-700 hover:text-red-600">Services</a>
+            <a href="#" class="text-gray-700 hover:text-red-600">Projects</a>
+            <a href="#" class="text-gray-700 hover:text-red-600">Media</a>
+            <a href="#" class="text-gray-700 hover:text-red-600">Blog</a>
+            <a href="#" class="text-gray-700 hover:text-red-600">Contact Us</a>
+            <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Get a Quote</button>
+        </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <video autoplay muted loop class="background-video">
-            <source src="hero.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <h1>YOUR DREAM SPACE <br> <span>OUR PASSION</span></h1>
-        <p>GFS builders and developers are serving low-cost housing to their customers by conveying comforts and high-standard utilities to their clients. So, everyone can attain their dream house for themselves and turn their visions into reality with GFS.</p>
-        <p>GFS Builders and Developers are best construction company in Pakistan. We aim to facilitate luxurious and affordable housing services to our customers with comfort.</p>
-        <p>So, avail the best opportunity to attain your dream house for yourself and turn.</p>
+    <section class="relative w-full h-screen flex items-center justify-center text-center text-white">
+        <!-- Video Wrapper -->
+        <div class="absolute inset-0 w-full h-full">
+            <video autoplay muted loop class="w-full h-full object-cover" loading="lazy">
+                <source src="assets/images/hero.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+        <!-- Content -->
+        <div class="relative z-10 px-4">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase">
+                <span class="font-abril">YOUR DREAM SPACE</span><br>
+                <span class="font-raleway text-red-600 italic">OUR PASSION</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl mb-6 max-w-xl mx-auto">GFS Builders and Developers deliver affordable, luxurious housing with high-standard utilities, turning your dream home into reality.</p>
+            <button class="bg-red-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-red-700">Explore Now</button>
+        </div>
     </section>
 
-<!-- 2nd section -->
-
-<section class="intro-section">
-    <div class="intro-container">
-        <!-- Left Side: Image -->
-        <div class="intro-image">
-            <img src="https://gfsbuilders.com.pk/wp-content/uploads/2024/04/Message-From-Our-CEO-686x1024.png" alt="CEO Image">
-        </div>
-        <!-- Right Side: Text Content -->
-        <div class="intro-content">
-            <h2 class="section-title">Company Introduction</h2>
-            <p>GFS Builders and Developers are among the leading and diversified builders, well-known for their projects across various cities in Pakistan. They demonstrate a commitment to endless success through effective business management strategies. Under the dedicated leadership of Chief Executive Officer Mr. Irfan Wahid, who has over six years of top-level experience in the United States, the company continually improves and delivers outstanding performance in the real estate market.</p>
-            <p>Mr. Irfan Wahid is recognized for his principles and integrity, inspiring innovation in Pakistan’s real estate market, making it more accessible and convenient for all. His leadership qualities led him to be elected as the vice chairman of the Supreme Council and as a trusted member of the Association of Builders and Developers (ABAD). With an MBA from the University of Washington and real estate courses from the London School of Economics (LSE), he showcases innovative residential development through design, craftsmanship, and responsiveness to customer needs.</p>
-            <h2 class="section-title ceo-message">A Message From Our CEO</h2>
-            <p>At GFS Builders and Developers in Pakistan, we believe in two important matters, integrity and trustability. These are the foundation of our company’s fame. We do not just construct houses and neighborhoods, we produce communities. Our systems are top-notch, and we make sure our customers can trust every step of the procedure. We are committed to delivering luxurious living spaces at affordable prices. We also offer flexible payment plans to make having a home easier for everyone.</p>
-            <p>Your satisfaction is our priority so we secure first at the top 10 Builders in Pakistan. Your dream house is possible to avail with GFS Builders and Developers.</p>
-            <p class="ceo-signature">— Irfan Wahid</p>
-        </div>
-    </div>
-</section>
-
-<!-- 3rd section -->
-
-<section class="py-10">
-    <div class="container mx-auto px-4 min-h-screen ">
-        <h2 class="text-4xl font-bold text-center text-red-600 mb-8">Project Gallery</h2>
-
-<!-- 4th Section -->
-<section class="services-section">
-    <h2 class="section-title">What Can We Offer?</h2>
-    <div class="services-grid">
-        <!-- Service Card 1 -->
-        <div class="service-card">
-            <img src="icon1.jpg" alt="Developing Land Icon" class="icon">
-            <h3>Developing Land</h3>
-            <p>Land development involves constructing buildings or altering the use of land, including infrastructure and zoning changes. At GFS...</p>
-            <a href="#" class="read-more">Read More...</a>
-        </div>
-        <!-- Service Card 2 -->
-        <div class="service-card">
-            <img src="icon2.jpg" alt="Property Icon" class="icon">
-            <h3>Property</h3>
-            <p>Residential and commercial property implies any improved or unchanged genuine property or...</p>
-            <a href="#" class="read-more">Read More...</a>
-        </div>
-        <!-- Service Card 3 -->
-        <div class="service-card">
-            <img src="icon3.jpg" alt="Housing Societies Icon" class="icon">
-            <h3>Housing Societies</h3>
-            <p>We specialize in building homes for families within housing societies. Our homes are carefully constructed to maximize...</p>
-            <a href="#" class="read-more">Read More...</a>
-        </div>
-        <!-- Service Card 4 -->
-        <div class="service-card">
-            <img src="icon4.jpg" alt="Industrial Land Icon" class="icon">
-            <h3>Industrial Land</h3>
-            <p>We specialize in constructing commercial spaces tailored to various businesses, including offices, service centers, banks...</p>
-            <a href="#" class="read-more">Read More...</a>
-        </div>
-        <!-- Service Card 5 -->
-        <div class="service-card">
-            <img src="icon5.jpg" alt="Commercial Lands Icon" class="icon">
-            <h3>Commercial Lands</h3>
-            <p>Commercial lands refer to plots specifically intended for business purposes, such as retail shops or office spaces. These...</p>
-            <a href="#" class="read-more">Read More...</a>
-        </div>
-        <!-- Service Card 6 (Last Card: Amenity Lands) -->
-        <div class="service-card">
-            <img src="icon6.jpg" alt="Amenity Lands Icon" class="icon">
-            <h3>Amenity Lands</h3>
-            <p>Amenity Land is the piece of the Lakes District Land involving the Notch Summit, other Regional Parkland, and Community Parkland...</p>
-            <a href="#" class="read-more">Read More...</a>
-        </div>
-    </div>
-</section>
-
-<!-- 5th section -->
-<section class="logo-slider-section">
-    <div class="logo-slider">
-        <button class="slider-arrow left-arrow">&lt;</button>
-        <div class="logo-container">
-            <!-- Logo 1 -->
-            <div class="logo-item">
-                <img src="1-premium-gary.png" alt="Logo 1" class="logo-gray">
-                <img src="1-premium-color.png" alt="Logo 1" class="logo-color">
+    <!-- Introduction Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4 md:flex md:space-x-8">
+            <!-- Left Side: Image -->
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <img src="https://gfsbuilders.com.pk/wp-content/uploads/2024/04/Message-From-Our-CEO-686x1024.png" alt="CEO Irfan Wahid" class="w-full rounded-lg shadow-lg object-contain" loading="lazy">
             </div>
-            <!-- Logo 2 -->
-            <div class="logo-item">
-                <img src="2malir-town-color - gray.png" alt="Logo 2" class="logo-gray">
-                <img src="2malir-town-color.png" alt="Logo 2" class="logo-color">
-            </div>
-            <!-- Logo 3 -->
-            <div class="logo-item">
-                <img src="3new-town-color - gray.png" alt="Logo 3" class="logo-gray">
-                <img src="3new-town-color.png" alt="Logo 3" class="logo-color">
-            </div>
-            <!-- Logo 4 -->
-            <div class="logo-item">
-                <img src="4north-color - gray.png" alt="Logo 4" class="logo-gray">
-                <img src="4north-color.png" alt="Logo 4" class="logo-color">
-            </div>
-            <!-- Logo 5 -->
-            <div class="logo-item">
-                <img src="5north-vila-color - gray.png" alt="Logo 5" class="logo-gray">
-                <img src="5north-vila-color.png" alt="Logo 5" class="logo-color">
-            </div>
-            <!-- Logo 6 -->
-            <div class="logo-item">
-                <img src="6orangi-tow-color - gray.png" alt="Logo 6" class="logo-gray">
-                <img src="6orangi-tow-color.png" alt="Logo 6" class="logo-color">
+            <!-- Right Side: Text Content -->
+            <div class="md:w-1/2 space-y-4">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 font-abril">Company Introduction</h2>
+                <p class="text-base sm:text-lg text-gray-700">GFS Builders and Developers are among the leading and diversified builders, well-known for their projects across various cities in Pakistan. They demonstrate a commitment to endless success through effective business management strategies. Under the dedicated leadership of Chief Executive Officer Mr. Irfan Wahid, who has over six years of top-level experience in the United States, the company continually improves and delivers outstanding performance in the real estate market.</p>
+                <p class="text-base sm:text-lg text-gray-700">Mr. Irfan Wahid is recognized for his principles and integrity, inspiring innovation in Pakistan’s real estate market, making it more accessible and convenient for all. His leadership qualities led him to be elected as the vice chairman of the Supreme Council and as a trusted member of the Association of Builders and Developers (ABAD). With an MBA from the University of Washington and real estate courses from the London School of Economics (LSE), he showcases innovative residential development through design, craftsmanship, and responsiveness to customer needs.</p>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-bold text-red-600 font-abril">A Message From Our CEO</h2>
+                <p class="text-base sm:text-lg text-gray-700">At GFS Builders and Developers in Pakistan, we believe in two important matters, integrity and trustability. These are the foundation of our company’s fame. We do not just construct houses and neighborhoods, we produce communities. Our systems are top-notch, and we make sure our customers can trust every step of the procedure. We are committed to delivering luxurious living spaces at affordable prices. We also offer flexible payment plans to make having a home easier for everyone.</p>
+                <p class="text-base sm:text-lg text-gray-700">Your satisfaction is our priority so we secure first at the top 10 Builders in Pakistan. Your dream house is possible to avail with GFS Builders and Developers.</p>
+                <p class="text-base sm:text-lg text-gray-700 italic font-raleway">— Irfan Wahid</p>
             </div>
         </div>
-        <button class="slider-arrow right-arrow">&gt;</button>
-    </div>
-</section>
+    </section>
 
-<!-- 6th section -->
-
-<section class="py-10 bg-gray-100 min-h-screen flex items-center justify-center">
-    <div class="container mx-auto px-6 max-w-6xl">
-        <h2 class="text-4xl font-bold text-center text-red-600 mb-8">Project Gallery</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Large Image -->
-            <div class="md:col-span-1">
-                <div class="relative">
-                    <img src="1.jpg" alt="DHA City Multan Villas" class="w-full h-[32rem] object-cover rounded-lg">
-                    <div class="absolute top-0 left-0 bg-red-600 text-white p-4 rounded-tl-lg">
-                        <h3 class="text-lg font-semibold">DHA CITY MULTAN VILLAS</h3>
-                    </div>
-                    <button class="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full">Book Now</button>
-                </div>
-            </div>
-            <!-- Smaller Images -->
-            <div class="md:col-span-2 grid grid-cols-2 gap-8">
-                <div class="relative">
-                    <img src="ntr-1.webp" alt="North Town Residency" class="w-full h-60 object-cover rounded-lg">
-                    <div class="absolute top-0 left-0 bg-blue-600 text-white p-4 rounded-tl-lg">
-                        <h3 class="text-lg font-semibold">NORTH TOWN RESIDENCY</h3>
-                    </div>
-                    <button class="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full">Book Now</button>
-                </div>
-                <div class="relative">
-                    <img src="ntr-2.webp" alt="Malir Town Residency" class="w-full h-60 object-cover rounded-lg">
-                    <div class="absolute top-0 left-0 bg-red-600 text-white p-4 rounded-tl-lg">
-                        <h3 class="text-lg font-semibold">MALIR TOWN RESIDENCY</h3>
-                    </div>
-                    <button class="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full">Book Now</button>
-                </div>
-                <div class="relative">
-                    <img src="ntr-3.webp" alt="7 Wonders City Islamabad" class="w-full h-60 object-cover rounded-lg">
-                    <div class="absolute top-0 left-0 bg-blue-600 text-white p-4 rounded-tl-lg">
-                        <h3 class="text-lg font-semibold">7 WONDERS CITY ISLAMABAD</h3>
-                    </div>
-                    <button class="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full">Book Now</button>
-                </div>
-                <div class="relative">
-                    <img src="ntr-4.webp" alt="DHA City Villas Karachi" class="w-full h-60 object-cover rounded-lg">
-                    <div class="absolute top-0 left-0 bg-red-600 text-white p-4 rounded-tl-lg">
-                        <h3 class="text-lg font-semibold">DHA CITY VILLAS KARACHI</h3>
-                    </div>
-                    <button class="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full">Book Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-8">
-            <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">View More Images</button>
-        </div>
-    </div>
-</section>
-
-<!-- Setion 7th  -->
-
-<section class="bg-gray-900 py-10">
-    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
-        <h2 class="text-4xl font-bold text-red-600 mb-4 md:mb-0">We'd Love To Hear From You!</h2>
-        <div class="flex space-x-4">
-            <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">Let's Talk!</button>
-            <button class="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900">Get in Touch</button>
-        </div>
-    </div>
-</section>
-<!-- section 8th -->
-
-<section class="py-10 bg-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-red-600 mb-12">Our Directors</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Director 1 -->
-            <div class="flex flex-col items-center  pl-4">
-                <img src="Mansoor wahid.webp" alt="Mansoor Wahid" class="w-48 h-48 object-cover rounded-full mb-4">
-                <h3 class="text-xl font-semibold text-gray-800">MANSOOR WAHID</h3>
-                <p class="text-gray-600">MANAGING DIRECTOR</p>
-            </div>
-            <!-- Director 2 -->
-            <div class="flex flex-col items-center border-l-4 border-red-600 pl-4">
-                <img src="irfan wahid.webp" alt="Irfan Wahid" class="w-48 h-48 object-cover rounded-full mb-4">
-                <h3 class="text-xl font-semibold text-gray-800">IRFAN WAHID</h3>
-                <p class="text-gray-600">CHIEF EXECUTIVE OFFICER</p>
-            </div>
-            <!-- Director 3 -->
-            <div class="flex flex-col items-center border-l-4 border-red-600 pl-4">
-                <img src="mohsin wahid.webp" alt="Mohsin Wahid" class="w-48 h-48 object-cover rounded-full mb-4">
-                <h3 class="text-xl font-semibold text-gray-800">MOHSIN WAHID</h3>
-                <p class="text-gray-600">DIRECTOR SALES & MARKETING</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- section 9th -->
-
-<section class="py-10 bg-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-red-600 mb-12">Latest News</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- News Card 1 -->
-            <div class="flex flex-col items-center">
-                <a href="https://youtu.be/ed_8n5y_yO4" target="_blank">
+        <!-- Project Gallery Section -->
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-red-600 mb-8 font-abril">Project Gallery</h2>
+                <!-- Placeholder for Gallery Items (Add images as needed) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Project Card (Placeholder) -->
                     <div class="relative">
-                        <img src="7 Wonders City Islamabad.jpg" alt="Irfan Wahid | 7 Wonders City Islamabad" class="w-full h-48 object-cover rounded-lg">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <svg class="w-12 h-12 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                        <img src="assets/images/card 1.webp" alt="Project Image" class="w-full h-64 object-cover rounded-lg shadow-lg" loading="lazy">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <p class="text-white text-lg font-semibold font-raleway">Project Name</p>
                         </div>
                     </div>
-                </a>
-                <h3 class="text-lg font-semibold text-gray-800 mt-4 text-center">Irfan Wahid | 7 Wonders City Islamabad</h3>
-            </div>
-            <!-- News Card 2 (with borders on both sides to create center line effect) -->
-            <div class="flex flex-col items-center border-l-4 border-r-4 border-red-600">
-                <a href="https://youtu.be/4KUEMC8G-qk" target="_blank">
+                    <!-- Add more project cards as needed -->
                     <div class="relative">
-                        <img src="Maweshi Mandi Media Cell - Sohrab Goth.jpg" alt="KTN News | Maweshi Mandi Media Cell - Sohrab Goth" class="w-full h-48 object-cover rounded-lg">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <svg class="w-12 h-12 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                        <img src="assets/images/card 2.webp" alt="Project Image" class="w-full h-64 object-cover rounded-lg shadow-lg" loading="lazy">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <p class="text-white text-lg font-semibold font-raleway">Project Name</p>
                         </div>
                     </div>
-                </a>
-                <h3 class="text-lg font-semibold text-gray-800 mt-4 text-center">KTN News | Maweshi Mandi Media Cell - Sohrab Goth</h3>
-            </div>
-            <!-- News Card 3 -->
-            <div class="flex flex-col items-center">
-                <a href="https://youtu.be/8awlRdMv4Jg" target="_blank">
                     <div class="relative">
-                        <img src="Chai, Toast and Host.jpg" alt="Adnan Hafeez | GFS | Chai, Toast and Host" class="w-full h-48 object-cover rounded-lg">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <svg class="w-12 h-12 text-red-600" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                        <img src="assets/images/card 3.webp" alt="Project Image" class="w-full h-64 object-cover rounded-lg shadow-lg" loading="lazy">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                            <p class="text-white text-lg font-semibold font-raleway">Project Name</p>
                         </div>
                     </div>
-                </a>
-                <h3 class="text-lg font-semibold text-gray-800 mt-4 text-center">Adnan Hafeez | GFS | Chai, Toast and Host</h3>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Services Section -->
+        <section class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-red-600 mb-8 font-abril">What Can We Offer?</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="assets/icons/icon1.jpg" alt="Developing Land Icon" class="w-16 h-16 mx-auto mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 font-raleway">Developing Land</h3>
+                        <p class="text-gray-700 mb-4 text-base sm:text-lg">Land development involves constructing buildings or altering the use of land, including infrastructure and zoning changes. At GFS...</p>
+                        <a href="#" class="text-red-600 hover:underline font-raleway">Read More...</a>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="assets/icons/icon2.jpg" alt="Property Icon" class="w-16 h-16 mx-auto mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 font-raleway">Property</h3>
+                        <p class="text-gray-700 mb-4 text-base sm:text-lg">Residential and commercial property implies any improved or unchanged genuine property or...</p>
+                        <a href="#" class="text-red-600 hover:underline font-raleway">Read More...</a>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="assets/icons/icon3.jpg" alt="Housing Societies Icon" class="w-16 h-16 mx-auto mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 font-raleway">Housing Societies</h3>
+                        <p class="text-gray-700 mb-4 text-base sm:text-lg">We specialize in building homes for families within housing societies. Our homes are carefully constructed to maximize...</p>
+                        <a href="#" class="text-red-600 hover:underline font-raleway">Read More...</a>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="assets/icons/icon4.jpg" alt="Industrial Land Icon" class="w-16 h-16 mx-auto mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 font-raleway">Industrial Land</h3>
+                        <p class="text-gray-700 mb-4 text-base sm:text-lg">We specialize in constructing commercial spaces tailored to various businesses, including offices, service centers, banks...</p>
+                        <a href="#" class="text-red-600 hover:underline font-raleway">Read More...</a>
+                    </div>
+                    <!-- Service Card 5 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="assets/icons/icon5.jpg" alt="Commercial Lands Icon" class="w-16 h-16 mx-auto mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 font-raleway">Commercial Lands</h3>
+                        <p class="text-gray-700 mb-4 text-base sm:text-lg">Commercial lands refer to plots specifically intended for business purposes, such as retail shops or office spaces. These...</p>
+                        <a href="#" class="text-red-600 hover:underline font-raleway">Read More...</a>
+                    </div>
+                    <!-- Service Card 6 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <img src="assets/icons/icon6.jpg" alt="Amenity Lands Icon" class="w-16 h-16 mx-auto mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold mb-2 font-raleway">Amenity Lands</h3>
+                        <p class="text-gray-700 mb-4 text-base sm:text-lg">Amenity Land is the piece of the Lakes District Land involving the Notch Summit, other Regional Parkland, and Community Parkland...</p>
+                        <a href="#" class="text-red-600 hover:underline font-raleway">Read More...</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Logo Slider Section -->
+    <section class="py-16 ">
+        <div class="container mx-auto px-4">
+            <div class="relative flex items-center bg-gray-800 py-4 rounded-lg">
+                <!-- Left Arrow -->
+                <button class="slider-arrow left-arrow absolute left-2 text-2xl text-gray-600 hover:text-red-600 p-2 bg-[#D9D9D9] rounded-full" aria-label="Previous Slide">❮</button>
+                <!-- Logo Container -->
+                <div class="logo-container flex justify-between overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-4 w-full px-12">
+                    <!-- Logo 1 -->
+                    <div class="logo-item flex-shrink-0 snap-center min-w-[150px]">
+                        <img src="assets/images/1-premium-gary.png" alt="Premium Logo Gray" class="logo-gray w-32 h-32 object-contain mx-auto" loading="lazy">
+                        <img src="assets/images/1-premium-color.png" alt="Premium Logo Color" class="logo-color w-32 h-32 object-contain mx-auto hidden" loading="lazy">
+                    </div>
+                    <!-- Logo 2 -->
+                    <div class="logo-item flex-shrink-0 snap-center min-w-[150px]">
+                        <img src="assets/images/2malir-town-color - gray.png" alt="Malir Town Logo Gray" class="logo-gray w-32 h-32 object-contain mx-auto" loading="lazy">
+                        <img src="assets/images/2malir-town-color.png" alt="Malir Town Logo Color" class="logo-color w-32 h-32 object-contain mx-auto hidden" loading="lazy">
+                    </div>
+                    <!-- Logo 3 -->
+                    <div class="logo-item flex-shrink-0 snap-center min-w-[150px]">
+                        <img src="assets/images/3new-town-color - gray.png" alt="New Town Logo Gray" class="logo-gray w-32 h-32 object-contain mx-auto" loading="lazy">
+                        <img src="assets/images/3new-town-color.png" alt="New Town Logo Color" class="logo-color w-32 h-32 object-contain mx-auto hidden" loading="lazy">
+                    </div>
+                    <!-- Logo 4 -->
+                    <div class="logo-item flex-shrink-0 snap-center min-w-[150px]">
+                        <img src="assets/images/4north-color - gray.png" alt="North Logo Gray" class="logo-gray w-32 h-32 object-contain mx-auto" loading="lazy">
+                        <img src="assets/images/4north-color.png" alt="North Logo Color" class="logo-color w-32 h-32 object-contain mx-auto hidden" loading="lazy">
+                    </div>
+                    <!-- Logo 5 -->
+                    <div class="logo-item flex-shrink-0 snap-center min-w-[150px]">
+                        <img src="assets/images/5north-vila-color - gray.png" alt="North Vila Logo Gray" class="logo-gray w-32 h-32 object-contain mx-auto" loading="lazy">
+                        <img src="assets/images/5north-vila-color.png" alt="North Vila Logo Color" class="logo-color w-32 h-32 object-contain mx-auto hidden" loading="lazy">
+                    </div>
+                    <!-- Logo 6 -->
+                    <div class="logo-item flex-shrink-0 snap-center min-w-[150px]">
+                        <img src="assets/images/6orangi-tow-color - gray.png" alt="Orangi Town Logo Gray" class="logo-gray w-32 h-32 object-contain mx-auto" loading="lazy">
+                        <img src="assets/images/6orangi-tow-color.png" alt="Orangi Town Logo Color" class="logo-color w-32 h-32 object-contain mx-auto hidden" loading="lazy">
+                    </div>
+                </div>
+                <!-- Right Arrow -->
+                <button class="slider-arrow right-arrow absolute right-2 text-2xl text-gray-600 hover:text-red-600 p-2 bg-[#D9D9D9] rounded-full" aria-label="Next Slide">❯</button>
             </div>
         </div>
-        <!-- Carousel Dots -->
-        <div class="flex justify-center mt-6 space-x-2">
-            <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
-            <span class="w-3 h-3 bg-gray-800 rounded-full"></span>
-            <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
+    </section>
+
+        <!-- Project Gallery Section -->
+        <section class="py-16 bg-gray-100">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="text-center mb-8">
+                    <p class="text-sm sm:text-base font-raleway text-gray-800 mb-2">OUR PROJECTS</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 font-abril">Project Gallery</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Large Image -->
+                    <div class="md:col-span-1">
+                        <div class="relative">
+                            <img src="assets\images\1.jpg" alt="DHA City Multan Villas" class="w-full h-[32rem] object-cover rounded-lg" loading="lazy">
+                            <div class="absolute top-0 left-0 bg-red-600 text-white p-4 rounded-tl-lg">
+                                <h3 class="text-base sm:text-lg font-semibold font-raleway">DHA CITY MULTAN VILLAS</h3>
+                            </div>
+                            <button class="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Book Now</button>
+                        </div>
+                    </div>
+                    <!-- Smaller Images -->
+                    <div class="md:col-span-2 grid grid-cols-2 gap-8">
+                        <!-- Image 1 -->
+                        <div class="relative">
+                            <img src="assets/images/ntr-1.webp" alt="North Town Residency Phase 2" class="w-full h-60 object-cover rounded-lg" loading="lazy">
+                            <div class="absolute top-0 left-0 bg-blue-600 text-white p-4 rounded-tl-lg">
+                                <h3 class="text-base sm:text-lg font-semibold font-raleway">NORTH TOWN RESIDENCY PHASE 2</h3>
+                            </div>
+                            <button class="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Book Now</button>
+                        </div>
+                        <!-- Image 2 -->
+                        <div class="relative">
+                            <img src="assets/images/ntr-2.webp" alt="Malir Town Residency Phase 1" class="w-full h-60 object-cover rounded-lg" loading="lazy">
+                            <div class="absolute top-0 left-0 bg-red-600 text-white p-4 rounded-tl-lg">
+                                <h3 class="text-base sm:text-lg font-semibold font-raleway">MALIR TOWN RESIDENCY PHASE 1</h3>
+                            </div>
+                            <button class="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Book Now</button>
+                        </div>
+                        <!-- Image 3 -->
+                        <div class="relative">
+                            <img src="assets/images/ntr-3.webp" alt="7 Wonders City Islamabad" class="w-full h-60 object-cover rounded-lg" loading="lazy">
+                            <div class="absolute top-0 left-0 bg-blue-600 text-white p-4 rounded-tl-lg">
+                                <h3 class="text-base sm:text-lg font-semibold font-raleway">7 WONDERS CITY ISLAMABAD</h3>
+                            </div>
+                            <button class="absolute bottom-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Book Now</button>
+                        </div>
+                        <!-- Image 4 -->
+                        <div class="relative">
+                            <img src="assets/images/ntr-4.webp" alt="DHA City Villas Karachi" class="w-full h-60 object-cover rounded-lg" loading="lazy">
+                            <div class="absolute top-0 left-0 bg-red-600 text-white p-4 rounded-tl-lg">
+                                <h3 class="text-base sm:text-lg font-semibold font-raleway">DHA CITY VILLAS KARACHI</h3>
+                            </div>
+                            <button class="absolute bottom-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">View More Images</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- We'd Love to Hear From You Section -->
+    <section class="bg-gray-800 py-10">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
+
+            <div class="p-6 container mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-20">
+                <h2 class=" text-xl sm:text-2xl md:text-3xl  text-red-600 mb-4 md:mb-0 font-abril">We'd Love To Hear From You!</h2>
+                <div class="flex space-x-4">
+                    <button class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 font-raleway">Let's Talk!</button>
+                    <button class="border border-white text-white px-6 py-3 rounded-lg hover:bg-white hover:text-gray-900 font-raleway">Get in Touch</button>
+                </div>
+            </div>
         </div>
+    </section>
+
+        <!-- Our Directors Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <p class="text-sm sm:text-base font-raleway text-gray-800 mb-2">OUR TEAM</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 font-abril">Our Directors</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Director 1 -->
+                    <div class="flex flex-col items-center">
+                        <img src="assets\images\Mansoor wahid.webp" alt="Mansoor Wahid" class="w-48 h-48 object-cover rounded-full mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 font-raleway">MANSOOR WAHID</h3>
+                        <p class="text-gray-600 font-raleway">MANAGING DIRECTOR</p>
+                    </div>
+                    <!-- Director 2 -->
+                    <div class="flex flex-col items-center border-l-2 border-red-600 pl-4">
+                        <img src="assets\images\irfan wahid.webp" alt="Irfan Wahid" class="w-48 h-48 object-cover rounded-full mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 font-raleway">IRFAN WAHID</h3>
+                        <p class="text-gray-600 font-raleway">CHIEF EXECUTIVE OFFICER</p>
+                    </div>
+                    <!-- Director 3 -->
+                    <div class="flex flex-col items-center border-l-2 border-red-600 pl-4">
+                        <img src="assets\images\mohsin wahid.webp" alt="Mohsin Wahid" class="w-48 h-48 object-cover rounded-full mb-4" loading="lazy">
+                        <h3 class="text-lg sm:text-xl font-semibold text-gray-800 font-raleway">MOHSIN WAHID</h3>
+                        <p class="text-gray-600 font-raleway">DIRECTOR SALES & MARKETING</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <!-- Latest News Section -->
+    <section class="py-16 bg-[#FFFEFA]">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-red-600 mb-12 font-abril">Latest News</h2>
+            <div class="news-container flex overflow-x-auto snap-x snap-mandatory gap-8 pb-4">
+                <!-- News Card 1 -->
+                <div class="flex-shrink-0 snap-center w-5/3 md:w-1/3">
+                    <a href="https://youtu.be/ed_8n5y_yO4" target="_blank">
+                        <div class="relative">
+                            <img src="assets\images\7 Wonders City Islamabad.jpg" alt="Irfan Wahid | 7 Wonders City Islamabad" class="w-full h-48 object-cover rounded-lg" loading="lazy">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="bg-red-600 p-3 rounded-lg">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mt-4 text-center font-raleway">Irfan Wahid | 7 Wonders City Islamabad</h3>
+                </div>
+                <!-- News Card 2 -->
+                <div class="flex-shrink-0 snap-center w-full md:w-1/3">
+                    <a href="https://youtu.be/4KUEMC8G-qk" target="_blank">
+                        <div class="relative">
+                            <img src="assets\images\Maweshi Mandi Media Cell - Sohrab Goth.jpg" alt="KTN News | Maweshi Mandi Media Cell - Sohrab Goth" class="w-full h-48 object-cover rounded-lg" loading="lazy">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="bg-red-600 p-3 rounded-lg">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mt-4 text-center font-raleway">KTN News | Maweshi Mandi Media Cell - Sohrab Goth</h3>
+                </div>
+                <!-- News Card 3 -->
+                <div class="flex-shrink-0 snap-center w-full md:w-1/3">
+                    <a href="https://youtu.be/8awlRdMv4Jg" target="_blank">
+                        <div class="relative">
+                            <img src="assets\images\Chai, Toast and Host.jpg" alt="Adnan Hafeez | GFS | Chai, Toast and Host" class="w-full h-48 object-cover rounded-lg" loading="lazy">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="bg-red-600 p-3 rounded-lg">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 mt-4 text-center font-raleway">Adnan Hafeez | GFS | Chai, Toast and Host</h3>
+                </div>
+            </div>
+            <!-- Carousel Dots -->
+            <div class="flex justify-center mt-6 space-x-2">
+                <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
+                <span class="w-3 h-3 bg-gray-800 rounded-full"></span>
+                <span class="w-3 h-3 bg-gray-300 rounded-full"></span>
+            </div>
+        </div>
+    </section>
+
+
+
+<!-- Get in Touch With Us Section -->
+<section class="py-16 bg-gray-800 text-white w-full">
+    <div class="container mx-auto px-4 max-w-8xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center">
+        <!-- Form Section -->
+        <div class="md:col-span-1 flex flex-col justify-center items-center min-h-[600px] md:min-h-[650px] px-4">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-red-600 mb-6 font-abril text-center">Get in Touch With Us!</h2>
+          <p class="text-lg mb-8 font-raleway text-center">Fill out the form below & we will get back to you as soon as possible.</p>
+          <form class="flex flex-col w-full max-w-md">
+            <input type="text" placeholder="Enter Your Name" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg placeholder-gray-500 font-raleway">
+            <input type="email" placeholder="Enter Your Email" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg placeholder-gray-500 font-raleway">
+            <input type="text" placeholder="Enter Your Mobile No." class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg placeholder-gray-500 font-raleway">
+            <input type="text" placeholder="Enter Your City Name" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg placeholder-gray-500 font-raleway">
+            <textarea placeholder="Your Message" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg placeholder-gray-500 font-raleway" rows="4"></textarea>
+            <select class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg font-raleway">
+              <option>Facebook</option>
+              <option>Twitter</option>
+              <option>Instagram</option>
+            </select>
+            <select class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg font-raleway">
+              <option>7 Wonders City - Phase 1</option>
+              <option>North Town Residency</option>
+              <option>Malir Town Residency</option>
+            </select>
+            <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 font-raleway mt-auto">Submit</button>
+          </form>
+        </div>
+  
+        <!-- Contact Details Section -->
+        <div class="md:col-span-1 flex flex-col justify-center items-center min-h-[600px] md:min-h-[650px] px-4">
+          <div class="bg-white text-gray-900 p-6 rounded-lg flex flex-col w-full max-w-md">
+            <h3 class="text-xl sm:text-2xl font-semibold mb-4 font-raleway text-center">How Can We Help You?</h3>
+            <p class="mb-4 font-raleway text-center flex-grow">You can contact us anytime through calls or messages. You can also visit our offices easily anytime. We deliver our best professional possibilities to reply to all questions within one day during the working days. We are here to help and answer all your valuable questions.</p>
+            <hr class="border-gray-300 mb-4">
+            <h4 class="text-lg font-semibold mb-4 font-raleway text-center">Head Office</h4>
+            <p class="mb-4 font-raleway text-center">Plot # FL-27, Al-Basit Tower, Gulshan-e-Jamal, Faisal Cantt. Opposite Askari - IV, Karachi, Sindh, Pakistan.</p>
+            <div class="flex items-start mb-4">
+              <img src="assets\icons\cell phone.jpg" alt="Phone Icon" class="w-6 h-6 mr-2">
+              <span class="font-raleway">
+                Toll Free: 0800-43700<br>
+                Landline: 021 3468 8140-150-160
+              </span>
+            </div>
+            <div class="flex items-start mb-4">
+              <img src="assets/icons/Email.jpg" alt="Email Icon" class="w-6 h-6 mr-2">
+              <span class="font-raleway">Email: <a href="mailto:info@gfsbuilders.com.pk" class="text-blue-600 hover:underline">info@gfsbuilders.com.pk</a></span>
+            </div>
+            <div class="flex items-start">
+              <img src="assets/icons/whatsapp.jpg" alt="WhatsApp Icon" class="w-6 h-6 mr-2">
+              <span class="font-raleway">
+                WhatsApp: 
+                <a href="https://wa.me/+923028255578" class="text-blue-600 hover:underline">+92 302 8255578</a>, 
+                <a href="https://wa.me/+92301155760" class="text-blue-600 hover:underline">+92 301 155760</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- section 10th -->
 
-<section class="py-10 bg-gray-900 text-white">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold text-red-600 mb-8">Get in Touch With Us!</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Form Section -->
-            <div>
-                <p class="text-lg mb-6">Fill out the form below & we will get back to you soon as possible.</p>
-                <form>
-                    <input type="text" placeholder="Enter Your Name" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg">
-                    <input type="email" placeholder="Enter Your Email" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg">
-                    <input type="text" placeholder="Enter Your Mobile No." class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg">
-                    <input type="text" placeholder="Enter Your City Name" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg">
-                    <textarea placeholder="Your Message" class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg" rows="4"></textarea>
-                    <select class="w-full p-3 mb-4 bg-white text-gray-900 rounded-lg">
-                        <option>7 Wonders City - Phase 1</option>
-                    </select>
-                    <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">Submit</button>
-                </form>
-            </div>
-            <!-- Contact Details Section -->
-            <div class="bg-white text-gray-900 p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4">Our Contact Details</h3>
-                <h4 class="text-lg font-semibold mb-2">How Can We Help You?</h4>
-                <p class="mb-6">You can contact us anytime through calls or messages. You can also visit our offices easily anytime. We deliver our best professional possibilities to reply to all questions within one day during the working days. We are here to help and answer all your valuable questions.</p>
-                <hr class="border-gray-300 mb-6">
-                <h4 class="text-lg font-semibold mb-4">Head Office</h4>
-                <p class="mb-6">Plot # FL-27, Al-Basit Tower, Gulshan-e-Maymar, Faisal Cantt. Opposite Askari - IV, Karachi, Sindh, Pakistan.</p>
-                <div class="flex items-center mb-2">
-                    <svg class="w-6 h-6 text-red-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2l-8 5-8-5h16zm-2 12H6V8l6 4 6-4v10z"/>
-                    </svg>
-                    <span>Email: <a href="mailto:info@gfsbuilders.com.pk" class="text-blue-600">info@gfsbuilders.com.pk</a></span>
-                </div>
-                <div class="flex items-center mb-2">
-                    <svg class="w-6 h-6 text-red-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M6.62 10.79a15.77 15.77 0 006.59 6.59l2.2-2.2a1 1 0 011.13-.22 11.48 11.48 0 003.56.56 1 1 0 011 1v3.5a1 1 0 01-1 1A18 18 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.48 11.48 0 00.56 3.56 1 1 0 01-.22 1.13l-2.2 2.2z"/>
-                    </svg>
-                    <span>Toll Free: 0800-43700</span>
-                </div>
-                <div class="flex items-center mb-2">
-                    <svg class="w-6 h-6 text-red-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M6.62 10.79a15.77 15.77 0 006.59 6.59l2.2-2.2a1 1 0 011.13-.22 11.48 11.48 0 003.56.56 1 1 0 011 1v3.5a1 1 0 01-1 1A18 18 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.48 11.48 0 00.56 3.56 1 1 0 01-.22 1.13l-2.2 2.2z"/>
-                    </svg>
-                    <span>Landline: 021 3468 8140-150-160</span>
-                </div>
-                <div class="flex items-center">
-                    <svg class="w-6 h-6 text-green-600 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.664 17.664a1.5 1.5 0 01-2.121 0l-3.543-3.543-3.543 3.543a1.5 1.5 0 01-2.121-2.121l3.543-3.543L6.336 8.457a1.5 1.5 0 012.121-2.121l3.543 3.543 3.543-3.543a1.5 1.5 0 012.121 2.121l-3.543 3.543 3.543 3.543a1.5 1.5 0 010 2.121z"/>
-                    </svg>
-                    <span>WhatsApp: <a href="https://wa.me/+923028255578" class="text-blue-600">+92 302 8255578</a>, <a href="https://wa.me/+92301155760" class="text-blue-600">+92 301 155760</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- footer -->
-
-<footer class="bg-white py-4 border-t border-gray-300 relative">
+  <footer class="bg-white py-4 border-t border-gray-300 relative">
     <div class="container mx-auto px-6 flex items-center justify-between">
         <!-- Social Media Icons -->
         <div class="flex space-x-4">
@@ -440,34 +528,17 @@
 
 
 
-<script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/hero.css">
-    <link rel="stylesheet" href="css/intro.css">
-    <link rel="stylesheet" href="css/projects.css">
-    <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/logo-slider.css">
+    <!-- Dialogflow Messenger -->
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    
     <df-messenger
-      intent="WELCOME"
-      chat-title="Gfx-builders"
-      agent-id="7a9d34be-7c11-4a7a-af31-3e837688512c"
-      language-code="en"
-      chat-icon="GFSlogo.jpg.png"
+        intent="WELCOME"
+        chat-title="Gfx-builders"
+        agent-id="7a9d34be-7c11-4a7a-af31-3e837688512c"
+        language-code="en"
+        chat-icon="assets/images/GFSlogo.png"
     ></df-messenger>
 
-    <style>
-        df-messenger {
-         --df-messenger-bot-message: #878fac;
-         --df-messenger-button-titlebar-color: #ff0000;
-         --df-messenger-chat-background-color: #fafafa;
-         --df-messenger-font-color: white;
-         --df-messenger-send-icon: #878fac;
-         --df-messenger-user-message: #479b3d;
-        }
-      </style>
-
-
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
 </body>
-
 </html>
